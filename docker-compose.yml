@@ -9,7 +9,7 @@ services:
       - ./app:/application
     tty: true
     environment:
-      - REDIS_HOST: redis
+      - REDIS_HOST=redis
   php-fpm2:
     build:
       context: docker/php-fpm
@@ -20,7 +20,7 @@ services:
       - ./app:/application
     tty: true
     environment:
-      - REDIS_HOST: redis
+      - REDIS_HOST=redis
   nginx-balancer:
     build:
       context: docker/nginx-balancer
