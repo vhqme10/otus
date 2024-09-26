@@ -1,18 +1,46 @@
 services:
-  php-fpm:
+  php-fpm1:
     build:
       context: docker/php-fpm
       dockerfile: Dockerfile
     networks:
       - otus
-  nginx:
+    volumes:
+      - ./app:/application
+    tty: true
+    environment:
+      - REDIS_HOST: redis
+  php-fpm2:
     build:
-      context: ./docker/nginx
+      context: docker/php-fpm
+      dockerfile: Dockerfile
+    networks:
+      - otus
+    volumes:
+      - ./app:/application
+    tty: true
+    environment:
+      - REDIS_HOST: redis
+  nginx-balancer:
+    build:
+      context: docker/nginx-balancer
       dockerfile: Dockerfile
     volumes:
-      - ./app/src/public:/application/public
+      - ./app/public:/application/public
     ports:
       - "80:80"
+    networks:
+      - otus
+  web1:
+    build:
+      context: docker/nginx-web
+      dockerfile: Dockerfile
+    networks:
+      - otus
+  web2:
+    build:
+      context: docker/nginx-web
+      dockerfile: Dockerfile
     networks:
       - otus
   redis:
