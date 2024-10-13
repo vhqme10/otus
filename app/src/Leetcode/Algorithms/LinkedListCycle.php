@@ -7,11 +7,18 @@ class ListNode {
     function __construct($val) { $this->val = $val; }
 }
 
+/**
+ * Оба решения имеют сложность O(n)
+ * так как количество операций растет по мере роста входных данных
+ * на каждой итерации происходит 2 действия
+ * тоесть 2n значит сложность О(n)
+ */
 class LinkedListCycle
 {
     /**
      * @param ListNode $head
      * @return Boolean
+     *
      */
     public function withoutArray(ListNode $head): bool
     {
