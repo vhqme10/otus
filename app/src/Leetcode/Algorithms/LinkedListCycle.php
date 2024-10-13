@@ -1,11 +1,6 @@
 <?php
 
 namespace Src\Leetcode\Algorithms;
-class ListNode {
-    public $val = 0;
-    public $next = null;
-    function __construct($val) { $this->val = $val; }
-}
 
 /**
  * Оба решения имеют сложность O(n)
@@ -62,4 +57,10 @@ class LinkedListCycle
         return false;
     }
 
+}
+
+class ListNode {
+    public $val = 0;
+    public $next = null;
+    function __construct($val) { $this->val = $val; }
 }

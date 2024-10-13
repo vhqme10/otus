@@ -2,6 +2,12 @@
 
 namespace Src\Leetcode\Algorithms;
 
+/**
+ * В этом рещении я думаю сложность квадратичная
+ * так как последний цикл вложеный
+ * если я правильно посчитал то получится
+ * О(N + N*N) => O(N^2)
+ */
 class PhoneLetterCombinations
 {
 
